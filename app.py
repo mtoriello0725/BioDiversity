@@ -19,6 +19,7 @@ app = Flask(__name__)
 #################################################
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/bellybutton.sqlite"
+
 db = SQLAlchemy(app)
 
 # reflect an existing database into a new model
@@ -97,6 +98,12 @@ def samples(sample):
     }
     return jsonify(data)
 
+@app.route("/wfreq/<sample>")
+def wfreq(sample):
+
+	result = db.session.query(Samples_Metadata.WFREQ).filter(Samples_Metadata.sample == sample).all()
+
+	return jsonify(result[0])
 
 if __name__ == "__main__":
     app.run()
