@@ -18,7 +18,7 @@ function buildMetadata(sample) {
     // tags for each key-value in the metadata.
     Object.entries(response).forEach(([key,value]) => {
       d3.select(".panel-body")
-        .append("strong").html(`${key}: ${value} `);
+        .append("b").html(`${key}: ${value} `);
     });
     // Works for now, but will need to pretty it up
 
@@ -90,7 +90,7 @@ function buildGauge(sample) {
         line: {color: "850000"}
       }],
 
-      title: "Gauge: WFREQ 0-9",
+      title: "<b>Gauge: WFREQ 0-9</b>",
       height: 500,
       width: 500,
       xaxis: {zeroline:false, showticklabels:false,showgrid: false, range: [-1, 1]},

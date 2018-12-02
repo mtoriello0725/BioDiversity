@@ -41,11 +41,28 @@ function buildCharts(sample) {
     }];
 
     var layout = {
-      title: "Bubble Chart",
+      title: "<b>Bubble Chart</b>",
+      titlefont:{
+        size: 20
+      },
+      xaxis: {
+        title: "OTU_ID",
+        titlefont: {
+          size: 18
+        }
+
+      },
+      yaxis: {
+        title: "Sample_Value",
+        titlefont: {
+          size: 18
+        }
+      },
       showlegend: false,
       height: 500,
       width: 1000,
       hovermode: "closest"
+
     };    
 
     Plotly.newPlot("bubble", data, layout);    
@@ -64,10 +81,12 @@ function buildCharts(sample) {
       labels: sortable.map(row => row.otu_id),
       // text: sortable.map(row => row.otu_label),
       type: "pie",
-      hoverinfo: sortable.map(row => row.otu_label)
+      hoverinfo: "labels",
+      // textinfo: "none"
     }];
 
     var layout = {
+      title: "<b>Pie Chart of Sample "+sample+"</b>",
       height: 500,
       width: 500
     };

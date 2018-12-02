@@ -31,6 +31,8 @@ Base.prepare(db.engine, reflect=True)
 Samples_Metadata = Base.classes.sample_metadata
 Samples = Base.classes.samples
 
+# Port fix: 
+port = int(os.environ.get('PORT', 5000))
 
 @app.route("/")
 def index():
